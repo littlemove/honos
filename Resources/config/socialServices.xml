@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<socialServices>
+	<socialService name="health" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.65" resourcesImportance="0.35"/>
+	<socialService name="education" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.75" resourcesImportance="0.25"/>
+	<socialService name="justice" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.5" resourcesImportance="0.5"/>
+</socialServices>

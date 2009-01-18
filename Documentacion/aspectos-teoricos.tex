@@ -1,0 +1,175 @@
+\chapter{Aspectos teóricos}
+\label{sec:aspectos-teoricos}
+
+\section{Modelado del país}
+Como toda simulación HONOS trata de plantear un modelo más o menos formal de los diferentes aspectos con los que juega: población, producción, servicios sociales, diplomacia etc. A continuación se expone a grandes rasgos las diferentes aproximaciones diseñadas e implementadas para dotar al programa del grado de verosimilitud deseado.
+
+\subsection{Nivel de vida}
+Se considera el nivel de vida del estado a simular como un conjunto de factores que formalizan la \emph{felicidad} de la población. Esta va a ser la medida que, en definitiva, decida el éxito del jugador en su papel de presidente. Sin embargo existe una complejidad conceptual a la hora de decidir como calcular el nivel de vida. Las dificultades que se plantean son las mismas que ocurren en el mundo real y están relacionadas con la ambigüedad y subjetividad inherente al término bienestar.\\
+ 
+Centrándose en lo que sí puede ser medible, se puede calcular esta magnitud atendiendo a los siguientes puntos:
+\begin{itemize}
+	\item Satisfacción de las necesidades de consumo.
+	\item Actividad política.
+	\item Relaciones internacionales.
+	\item Existencia de conflictos armados (terrorismo, guerras civiles, guerras con otros estados, \ldots). 
+	\item Calidad de los servicios públicos.
+\end{itemize}
+
+\subsection{Población}
+La población se distribuye en diferentes grupos. De cada uno de ellos se establece la importacia que dan a los factores que condicionan el nivel de vida expuestos anteriormente. Así pues, de cada grupo se puede definir la importancia que consideran sobre dichos aspectos.\\
+
+También se define otro conjunto de características necesarias para la simulación:
+
+\begin{itemize}
+	\item Tamaño del grupo. Define el porcentaje de población del total que corresponde al grupo en cuestión.
+	\item Poder adquisitivo. Define el porcentaje de la riqueza total del país que tiene cada grupo. Definirá en que medida es afectado por las variaciones de precio en los productos de consumo como se verá en la sección \ref{sec:consumo}.
+\end{itemize}
+
+\subsubsection{Consumo}
+\label{sec:consumo}
+Para satisfacer las necesidades de consumo con respecto a la producción, la importacia que le hayamos otorgado y el tamaño del grupo de población, se implementa un modelo matemático que nos indica cual es la reacción ante los cambios de precio en los diferentes productos. Utilizando una función de la forma $1- x ^{\lg{1 - poder adquisitivo}/\lg{0.5}}$ obtenemos curvas que representan el acceso a un producto con una cierta inflacción según el poder adquisivo del mismo.\\
+
+Por ejemplo, para un grupo de población que acapara el 70\% de la riqueza del país, tendremos una función como esta:
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/plot2D.png}
+	\caption{Gráfica de consumo 2}
+	\label{fig:Eje x cambios de precio. Eje y consumo}
+\end{figure}
+
+Sin embargo, para un grupo de población que acapara el 30\% de la riqueza del país, tendremos una función como esta:
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/plot2D2.png}
+	\caption{Gráfica de consumo 2}
+	\label{fig:Eje x cambios de precio. Eje y consumo}
+\end{figure}
+
+Podemos constatar como, a menor riqueza, una variación de precios supone una pérdida de capacidad adquisitiva mucho más pronunciada.\\
+
+Así podemos observar que se modela bastante bien el comportamiento de los distintos grupos de población según su capacidad de consumo: cuanta más riqueza acaparan, menos sensibles son los cambios de precio y por lo tanto tienen mayor margen para satisfacer sus necesidades de consumo. Lo contrario ocurre con los grupos cuyo poder adquisitivo sea más bajo.\\
+
+Esto, combinado con la importancia que cada grupo le otorga al consumo nos permite modelar de una forma lógica el comportamiento de una sociedad heterogenea.
+
+\subsection{Producción}
+Al usuario no se le muestran la mayor parte de los datos con los que trabaja internamente producción, por una parte para no atosigarlo con cifras y por otra porque el conocimiento como presidente del gobierno de los pormenores productivos de la nación es limitado, así como su capacidad de intervención.\\
+
+Internamente, producción trabajo con el modelo más simple de mercado: el de la oferta y la demanda. Sin embargo se le ha dotado de otros mecanismos que permiten a la producción evolucionar de forma automática siguiendo dos simples normas:
+
+\begin{itemize}
+	\item Tratar de satisfacer siempre la demanda.
+	\item Tratar de maximizar los beneficios.
+\end{itemize}
+
+En resumen producción es un ente con el que el jugador se relaciona directamente de forma limitada, pero que afecta en gran medida el desarrollo del juego. Por eso debe comportarse de forma \emph{aparentemente} inteligente y autónoma.
+
+\subsection{Servicios sociales}
+A nivel básico los servicios sociales afectan a la felicidad de la población según su funcionamiento. La percepción que estos tienen de dicho funcionamiento se mide en HONOS mediante la \emph{calidad}: cuanta mayor calidad tiene un servicio más contenta está la población con él.\\
+
+En la vida real influyen infinidad de parámetros sobre dicho funcionamiento; para esta simulación se han tomado dos: los recursos humanos y los recursos materiales. La razón es que, de la forma que se comentará más adelante, estos parámetros pueden ser contrastados y comparados con valores de calidad según estipulan diversas organizaciones internacionales.\\
+
+No sólo afecta la cantidad de estos dos recursos, si no la productividad de los mismos. Para medir esto nos valemos otra vez una función matemática de forma a la anteriormente mencionada para consumo. De esta forma obtenemos un iíndice de productividad en función del recurso y el dinero invertido en el.
+
+\subsection{Diplomacia}
+Las relaciones diplomáticas se basan en establecer tratados con las diferentes naciones con las que tenemos relación. El concepto clave en este caso es \emph{opinión}: dependiendo de la opinión que la potencia extranjera tenga sobre nuestro país podremos hacer a más o menos tratados con esta.\\
+
+Cada uno de estos compromisos supone unos beneficios e inconvenientes que se manifiestan en diversos parámetros de la simulación: desde la producción hasta la felicidad de un grupo poblacional. Pero, además de los efectos causados, cada tratado tiene unos requisitos que debemos de satisfacer; la índole de estos también puede ser diversa: desde el estado de nuestros servicios sociales, hasta los precios de exportación de nuestros productos. Así pues si la opinión del país con el que queremos mantener relaciones es suficiente y cumplimos los requisistos para un tratado concreto, podremos iniciar éste y se mantendrá siempre y cuando los requisitos antes mencionados se mantengan dentro de unos parámetros razonables.\\
+
+\section{Opciones de personalización}
+En cierta medida HONOS está construido para que pueda ser modificado adaptándolo a los gustos o necesidades del jugador a la hora de simular una realidad nacional diferente. Así pues multitud de parámetros son personalizables mediante ficheros de configuración. Así pues, el juego permite configurar los siguientes aspectos:
+
+\begin{itemize}
+	\item Lista de políticas, con sus requerimientos y sus efectos.
+	\item Lista de tratados, con sus requerimientos y sus efectos.
+	\item Estados iniciales de la producción y los servicios sociales (¿cómo funcionaban estos antes de nuestra elección como presidente?)
+	\item Distribución de la riqueza. Podemos definir en que medida se distribuye la riqueza entre lso diferentes grupos de población.
+	\item Distribución poblacional. Podemos definir en que medida se distribuye la población entre los diferentes grupos.
+	\item Niveles de importancia. Podemos definir en que manera afecta cada parámetros de nuestro país a cada grupo poblacional.
+	\item Costes y sueldos. Podemos definir cual es gasto óptimo en recursos para los diferentes servicios sociales.
+	\item Definicón de calidad de servicios. Podemos definir (dentro del binomio recursos humanos - recursos materiales) que cantidad de estos se consideran óptimos.
+\end{itemize}
+
+\section{Immediate Mode Graphic User Interface (IMGUI)}
+\label{sec:imgui}
+Immediate Mode Graphic User Interface (IMGUI) es una nueva aproximación a la implementación de interfaces gráficas de usuario (\emph{GUIs}). La forma más sencilla de explicar en que consiste es por contraposición con la forma \emph{estandar} de implementar GUIs: la forma más extendida se basa en poner los componentes del GUI en pantalla, preguntarles por su estado y enviar mensajes.\\
+
+Dicho intercambio de información se realiza mediante eventos que los componentes \emph{escuchan} y reaccionan de forma apropiada. Una vez finalizado su uso, como es normal, los componentes se eliminan y se liberan sus recursos.\\
+
+Todo esto conlleva en la práctica definir muchas lineas de código para implementar la funcionalidad más simple de, pongamos un botón. Además dicho código, aunque muy acorde con el paradigma de la orientación a objetos, rompe la estructuración lineal del flujo del programa: normalmente donde se produce un evento, se captura y se procesa, es un lugar diferente y en muchos casos poco transparente.\\
+
+Lo que se trata de conseguir con IMGUI son, principalmente dos objetivos:
+
+\begin{enumerate}
+	\item En primer lugar simplificar la implementación de los GUIs logrando resultados de forma más rápida e intuitiva.
+	\item Conseguir que el flujo del programa \emph{viaje} por el interfaz de usuario de forma más lineal (aunque esto suponga un paso hacia la programación estructurada que los purista de la orientación a objetos pueden no ver con buenos ojos).
+\end{enumerate}
+
+IMGUIs tienen sus contras, pero a la hora de realizar GUIs para aplicaciones en tiempo real (como por ejemplo juegos) sus ventajas priman: los componentes son renderizados y utilizados justo en el sitio donde se necesitan y son llamados de forma clara en el código.\\
+
+Para todo esto es necesario tener una biblioteca de componentes que permita reproducir este comportamientos (esa es una de las razones por las que para este proyecto se ha diseñado e implementado una desde cero). Una parte importante de esta biblioteca es procurar una forma en la que el \emph{estado} del interfaz sea compartido por todos los componentes y no sean estos los que lo almacenen.\\
+
+Un estado global para todos los componentes no es una idea descabellada, en la mayor parte de los casos (en todos, en lo que a este proyecto se refiere) parámetros como el foco, la posición del ratón, etc, sólo tienen sentido referidos a un componente en un momento de tiempo dado, es decir: por cada frame sólo se puede interactuar con un componente.\\
+
+Las características de la implementación específica para la biblioteca de componentes gráficos de este proyecto son:
+\begin{itemize}
+	\item Existe una estructura única compartida por todos los componentes que almacena la información de \emph{interacción} en cada momento (posición del ratón, foco, estado del componente con el foco, etc).
+	\item El componente con el que se interactua puede estar en dos estados: uno modela el estado en que estamos a punto de interactuar con él (o al menos tenemos esa posibilidad) y otro que indica que estamos interactuando con él.
+	\item En un momento determinado sólo un componente de cada vez puede estar en alguno de los dos estados.
+	\item Los eventos generados por el usuario mediante su iteración (movimiento del ratón, pulsación de botones, etc) sólo son enviados a un elemento: aquel que esté en uno de los dos estados susceptibles de ser interactuados.	
+\end{itemize}
+
+Durante el diseño del GUI para HONOS surgió un problema del que no se habla en la poca documentación que hay al respecto de los IMGUIs: \emph{¿qué sucede en los casos en los que se interactua con dos elementos al mismo tiempo?} La respuesta es simple: eso no puede suceder.\\
+
+Antes de explicar la solución, trataré de exponer el problema con un ejemplo clarificador: dos componentes superpuestos comparten, como mínimo, algo de su area. Cuando interacionamos con ese area compartida se produce un conflicto, ¿con qué elmento estamos interactuando? El sentido común nos dice que nuestra intención siempre será interactuar con el componente que ocupe la posición superior.\\
+
+Por ello la biblioteca utilizada almacena no sólo la posición en dos dimensiones (como es natural en un iterfaz 2D) sino también el nivel (o posición Z) en el que se encuentra.
+
+\section{Resource Adquisition Is Initialization (RAII)}
+\label{sec:raii}
+Resource Adquisition Is Initialization (RAII) es un patrón de diseño muy usado en lenguajes como ADA, D y C++. Basicamente consiste en asegurar que la adquisición de recursos se producirá en la inicialización de los objetos y de forma atómica. De la misma forma este patrón trata de asegurar que la destrucción de los mismos conllevará la liberación de los recursos asignados en su construcción.\\
+
+En C++ y para asegurarnos la contrucción de objetos siguiendo este patrón hacemos uso de los denominados \emph{punteros inteligentes}: creamos los objetos con el operador \emph{new} y asignamos el puntero resultante a un puntero inteligente. Cualquier fallo en la inicialización de recursos (lo que se traduce a cualquier fallo en la construcción de un objeto) resulta en una excepción que, en principio, nos hace perder el flujo de ejecución esperado. Los punteros inteligentes se encargan automáticamente de eliminarse a la salida de su ámbito por lo que no debemos preocuparnos por que una excepción propicie esto.\\
+
+Una vez creados todos los recursos necesarios y asignados a punteros inteligentes, si no se ha habido ningún error, tenemos un objeto perfectametne construido y con sus recursos asignados correctamente. Para evitar que estos se pierdan a la salida del ámbito que provee el contructor, los asignamos de forma normal (como atributos del objeto, por ejemplo) mediante una llamada a \emph{release()}.\\
+
+Así pues si el contructor no ha podido inicializar el objeto este no consumirá ninguno de los recursos y si, por el contrario, este se ha inicializado de forma correcta, las llamadas a su destructor liberan todos los recursos adquiridos.\\
+
+Un resumen en pocas palabras: si una clase se simplementa siguiendo el patrón RAII podemos asegurar que un objeto construido correctamente podrá ser eliminado correctamente con una llamada a su destructor, y que uno que no hay podido ser construido, no estará consumiendo ningún recurso.\\
+
+Este patrón se utiliza dentro de este proyecto de forma intensiva en las clases que componen la biblioteca de componentes gráficos. Un ejemplo de este patrón implementado para este proyecto es el siguiente:
+
+\lstloadlanguages{[Visual]C++,[ISO]C++, XML}
+\lstset{% general command to set parameter(s)
+language=[Visual]C++,
+basicstyle=\footnotesize, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\footnotesize, % typewriter type for strings
+breaklines=true,
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+Button::Button(IDirect3DDevice9* pD3Ddevice, WCHAR* wcpID ,int iXpos, int iYpos, WCHAR* wcpMainTextureFile, WCHAR* wcpPressedTextureFile, WCHAR* wcpText) : UIComponent(wcpID,iXpos,iYpos){
+	HRESULT hr;	
+	
+	// Cualquier fallo en este bloque no provoca que los recursos sean utilizados, ya que los auto_ptr<> son liberados automáticamente cuando se
+	// sale del ámbito.
+	
+	std::auto_ptr<Bitmap> autopMainBitmap(new Bitmap(pD3Ddevice, wcpMainTextureFile));
+	std::auto_ptr<Bitmap> autopPressedBitmap(new Bitmap(pD3Ddevice, wcpPressedTextureFile));
+	std::auto_ptr<ui::Text> autopText(new Text(pD3Ddevice,12,1,false,L"Arial"));
+	
+	// Si llegamos aquí es que los recursos se han inicializado de forma correcta.
+	
+	m_pMainBitmap = autopMainBitmap.release();
+	m_pPressedBitmap = autopPressedBitmap.release();
+	m_pText = autopText.release();
+
+	setHeight(m_pMainBitmap->getHeight());
+	setWidth(m_pMainBitmap->getWidth());
+	
+	setXPosition(iXpos);
+	setYPosition(iYpos);
+	m_wsText = wcpText;	
+	m_bIsPressed = false;
+}
+\end{lstlisting}

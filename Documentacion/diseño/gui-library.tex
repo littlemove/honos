@@ -1,0 +1,51 @@
+\section{GUI-Library}
+Agrupadas bajo un mismo \emph{namespace} estas clases representan cada uno de los componentes que pueden formar parte del interfaz de usuario.\\
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/gui.jpg}
+	\caption{Diagrama de GUI Library}
+	\label{fig:gui-library}
+\end{figure}
+
+Las características principales de la biblioteca gráfica son:
+\begin{itemize}
+	\item Todos los componentes heredan de UIComponent.
+	\item Se ha buscado el menor acoplamiento posible con la tecnología usada para el rendernizado y computar de eventos de ratón (DirectX).
+	\item Todos los componentes utilizan la funcionalidad mínima de dos entidades más primitivas: Bitmap y Text. Se puede decir que todos los componentes son \emph{composiciones} de un número variable de estos elementos, dotándolos luego del comportamiento acorde a su naturaleza.
+	\item La gestión de todos los componentes pasa por una sola clase (UIManager).
+	\item El sistema es muy rudimentario pero funcional: se cargan todos los componentes desde el inicio de la ejecución, manteniéndolos ocultos o visibles según necesidad.
+	\item El esta del interfaz de usuario es global, es decir, compartido por todos los componentes del mismo.
+\end{itemize}
+
+\subsection{UIComponent}
+UIComponent representa el comportamiento y funcionalidad básica de todo componente del interfaz de usuario. Todo elemento del interfaz \emph{es un UIComponent}. Esto puede llevar a pensar que UIComponent debería ser una clase abstracta, pero la implementación es más clara y ofrece mayores posibilidades si esto no se hace.\\
+
+Las características principales de todo UIComponent son:
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=15cm]{images/diagramas/uicomponent.jpg}
+	\caption{Diagrama de clase de UIComponent}
+	\label{fig:uicomponent}
+\end{figure}
+
+\begin{itemize}
+	\item Ocupa una \emph{posición} en la pantalla. 
+	\item Tiene un \emph{tamaño}.
+	\item Recibe \emph{eventos} previamente procesados por el UIManager y devuelve otros de acuerdo a su naturaleza.
+	\item Tiene dos estados: uno corresponde al momento de ser interactuado (\emph{Hot}) y otro cuando se produce dicha interacción (\emph{Active}).
+	\item Tiene un \emph{identificador} único dentro el interfaz gráfico de usuario.
+	\item Se puede acceder al estado intrínseco del objeto (sus atributos) de una forma estándar: mediante la llamada a un método que recibe como parámetro el identificador de dicho atributo.
+	\item Se puede variar el estado intrínseco del objeto (sus atributos) de una forma estándar: mediante la llamada a un método que recibe como parámetro el identificador de dicho atributo.
+	\item Tiene la capacidad de dibujarse.
+\end{itemize}
+
+
+\subsection{UIManager}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=15cm]{images/diagramas/uimanager.jpg}
+	\caption{Diagrama de clase de UIManager}
+	\label{fig:uicomponent}
+\end{figure}

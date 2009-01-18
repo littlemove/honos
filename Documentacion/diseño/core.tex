@@ -1,0 +1,129 @@
+\section{Core}
+Bajo un \emph{namespace} del mismo nombre se encuentran agrupadas todas las clases que proporcionan la lógica de juego.\\
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/core.jpg}
+	\caption{Diagrama core}
+	\label{fig:Core}
+\end{figure}
+Todas ellas tienen una serie de características comunes:
+\begin{itemize}
+	\item Tratan de ser lo más independientes posibles de la implementación del resto de clases (ya sea de otros paquetes como del core).
+	\item Actúan con la técnica de la \emph{caja negra}\footnote{En teoría de sistemas y física, se denomina caja negra a aquel elemento que es estudiado desde el punto de vista de las entradas que recibe y las salidas o respuestas que produce, sin tener en cuenta su funcionamiento interno. En otras palabras, de una caja negra nos interesará su forma de interactuar con el medio que le rodea (en ocasiones, otros elementos que también podrían ser cajas negras) entendiendo qué es lo que hace, pero sin dar importancia a cómo lo hace.} a fin de aprovechar las ventajas que esto proporciona, esto es, ser más fácil de entender ya que permite dar una visión más clara del conjunto. En teoría el sistema también será más robusto y fácil de mantener, en caso de ocurrir un fallo, éste puede ser aislado y abordado más ágilmente.
+\end{itemize}
+
+A continuación se describen las clases que componen el core y su funcionamiento de manera somera, más adelante se puede encontrar una descripción más detallada de las mismas y de todos sus miembros.
+
+\subsection{Population}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/population.jpg}
+	\caption{Diagrama de clase Population}
+	\label{fig:Diagrama de clase Population}
+\end{figure}
+La población está compuesta por una lista de grupos de población (\emph{PopulationGroups}). Las características de la población son las siguientes:
+\begin{itemize}
+	\item Tiene un \emph{tamaño} fijo.    
+  \item Tiene una magnitud \emph{felicidad} que evoluciona turno tras turno según 4 factores: Consumo, estado de los servicios sociales, políticas implementadas y relaciones diplomáticas.
+  \item Esta dividida en 5 \emph{grupos}: Conservadores, ultrademócratas, aislacionistas, comerciantes y verdes.
+  \item Cada grupo representa un porcentaje de la población total.
+  \item Cada grupo tiene un índice que indica su \emph{poder adquisitivo}, es decir su capacidad para consumir productos.
+  \item Cada grupo tiene un índice que indica la \emph{importancia que le otorga al buen funcionamiento de cada servicio}.
+  \item Las necesidades de consumo de un grupo se calculan atendiendo a su tamaño; el consumo real tiene en cuenta su tamaño y su poder adquisitivo.
+  \item Cada grupo tiene un índice que indica la \textit{importancia que le otorga a la capacidad de consumir un producto}.
+  \item Cada grupo se ve afectado por las políticas implementadas (el grado de este efecto lo determinan las propias políticas).
+  \item Cada grupo se ve afectado por las relaciones diplomáticas implementadas (el grado de este efecto lo determinan las propias relaciones diplomáticas).
+  \item En cada turno se calcula la felicidad \emph{relativa} al mismo. Luego esta afecta a la felicidad absoluta. 
+\end{itemize}
+
+En cuanto a los grupos de población concretos en los que se divide el país simulado (Prunisia), tenemos que tener en cuenta las siguientes notas descriptivas:
+\begin{itemize}
+    \item Conservadores: Grupo minoritario de la población que copa gran parte de la riqueza. Otorgan poca importancia a los servicios estatales a excepción de Justicia. Las necesidad de consumo son prioritarias.
+    \item Ultrademócratas: Forman el grueso de la población en cuanto a tamaño. Otorgan gran importancia a los servicios estatales.
+    \item Comerciantes: Un grupo muy parecido a los Conservadores pero con mayor número, ligera preocupación por los servicios sociales y menor dependencia del consumo.
+    \item Verdes: Grupo minoritario muy crítico con el funcionamiento de los servicios sociales.
+    \item Aislacionistas: Grupo con el menor poder adquisitivo, dependiente de los servicios estatales pero con pocas necesidades de consumo. 
+    \end{itemize}
+    
+\subsection{Producción}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/production.jpg}
+	\caption{Diagrama de clase Production}
+	\label{fig:Diagrama de clase Production}
+\end{figure}
+La producción la conforman varios grupos o categorías de productos fundamentales que son: alimentación, energía y productos manufacturados.\\
+
+Todos ellos comparten los parámetros característicos siguientes:
+
+\begin{itemize}
+    \item Existe un \emph{Máximo Producción} que no se puede superar. Es el límite superior de la evolución automática de la producción.
+    \item El \emph{Almacén} indica la cantidad de unidades que pueden ser almacenadas.
+    \item El \emph{Coste Base} indica el coste logístico de la producción. Está influenciado por los parámetros \emph{máxima producción}, \emph{almacén} y \emph{coste unidad}.
+    \item \emph{Coste unidad} se refiere al coste de producción.
+    \item \emph{Producción/Turno} indica el número de unidades producidas en un turno.
+    \item \emph{Coste importación} coste de importar una unidad de producto.
+    \item \emph{Importación/Turno} son las unidades importadas por turno.
+    \item \emph{Coste exportación} coste de exportar una unidad de producto.
+    \item \emph{Exportación/Turno} son las unidades exportadas por turno.
+    \item \emph{Subvenciones} dinero que proporciona el estado por turno.
+    \item \emph{I.impuestos} es un índice que indica el porcentaje de impuestos que afectan a un producto.
+    \item \emph{I.beneficios} es un índice que indica el porcentaje de beneficios que afectan a un producto.
+    \item \emph{Precio/Unidad} es el precio de venta al público.
+    \item \emph{Consumo} cantidad de unidades consumidas / porcentaje de la demanda satisfecha.
+    \item \emph{Beneficio} indica el dinero obtenido una vez substraídos los gastos de producción, impuestos, etc, por turno.
+    \item \emph{Dinero} disponible para la producción.
+    \item \emph{Tasa de empleo} es un índice que indica el porcentaje de empleo. 
+\end{itemize}
+
+\subsection{Servicios sociales}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/socialServices.jpg}
+	\caption{Diagrama de clase SocialServices}
+	\label{fig:Diagrama de clase SocialServices}
+\end{figure}
+Los servicios sociales se dividen en tres entidades (Sanidad, Justicia y Educación) que comparten los siguientes atributos:
+
+\begin{itemize}	
+   \item \emph{Personal} indica en que medida se cumple que la cantidad de personal asignada al servicios se acerca al número óptimo. Dicho número lo obtenemos mediante un estudio teórico.
+    \item \emph{Sueldo personal }indica en que medida se cumple que el sueldo al personal se acerca al sueldo óptimo. Dicho número lo obtenemos mediante un estudio teórico. Este valor repercute en la productividad del personal [0,1], un sueldo óptimo equivale a la productividad máxima.
+    \item \emph{Recursos} indica en que medida se cumple que la cantidad de recursos asignada al servicios se acerca al número óptimo. Dicho número lo obtenemos mediante un estudio teórico.
+    \item \emph{Mantenimiento recursos} indica en que medida se cumple que el gasto en mantenimiento de infraestructuras se acerca al gasto óptimo óptimo. Dicho número lo obtenemos mediante un estudio teórico. Este valor repercute en la productividad de los recursos [0,1], un sueldo coste equivale a la productividad máxima.
+    \item \emph{Importancia personal} indica la importancia que asignamos al personal del servicio con relación a su necesidad para la evaluación de la calidad.
+    \item \emph{Importancia recursos} indica la importancia que asignamos al personal del servicio con relación a su necesidad para la evaluación de la calidad.  
+    \item A partir de estos datos podemos calcular los \emph{gastos} en el servicio por turno y la \emph{calidad} del mismo.
+    \item \emph{Calidad del servicio} indica la calidad del servicio en el estado actual. La calidad corresponde a una ecuación que toma como parámetros Personal, Recursos, su importancia . Además se le aplican unos modificadores referidos a la calidad/productividad de ambos parámetros en relación con \emph{Sueldo óptimo} y \emph{Mantenimiento infraestructuras óptimo} respectivamente. 
+\end{itemize}
+
+\subsection{Diplomacia}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/diplomacy.jpg}
+	\caption{Diagrama de clase Diplomacy}
+	\label{fig:Diagrama de clase Diplomacy}
+\end{figure}
+Las relaciones diplomáticas se llevan a cabo sobre una lista fija de países extranjeros que comparten las siguientes características:
+\begin{itemize}
+	\item Tiene una \emph{opinión} determinada del estado controlado por el jugador. Dicha opinión es resultado de diversos parámetros (estado de la población, producción y servicios sociales), así como de la \emph{importancia} asignada a cada uno.
+	\item Cada país tiene una serie de \emph{tratados} (Ver: \emph{Políticas/Tratados} \ref{sec:politicas}) asociados, que están definidos desde el inicio del juego.
+	\item Para el jugador dichos tratados sólo son visibles si la opinión de la potencia extranjera es suficiente.
+	\item Cada país tiene una lista de los tratados activos. En cada turno se chequea que estos cumplan los requisitos para seguir funcionando. Si no es así se reduce la opinión del país, pudiendo llegar a anularse el tratado unilateralmente.	 
+\end{itemize}
+
+\subsection{Políticas/Tratados}
+\label{sec:politicas}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=10cm]{images/diagramas/politicalActivity.jpg}
+	\caption{Diagrama de clase PoliticalActivity}
+	\label{fig:Diagrama de clase PoliticalActivity}
+\end{figure}
+A nivel de diseño e implementación tanto políticas como tratados son lo mismo: actividades políticas que tienen una serie de requisitos y una serie de efectos.
+\begin{itemize}
+	\item Cada actividad política tiene una lista de requisitos que deben cumplirse para que sus efectos sean aplicados.	
+	\item Un \emph{requisito} se identifica por el parámetro del estado del jugador al que afecta, el valor y un intervalo de variación sobre ese valor que consideramos aceptable para el cumplimiento del requerimiento.
+	\item Un \emph{requisito} se identifica por el parámetro del estado del jugador al que afecta, el valor y un intervalo de variación sobre ese valor que consideramos aceptable para el cumplimiento del requerimiento.
+		\item Cada actividad política tiene una lista de efectos que actúan mientras la actividad permanece activa.
+		\item Un \emph{efecto} se identifica por el parámetro del estado del jugador al que afecta y un valor que determina la modificación por turno del mismo.
+\end{itemize}

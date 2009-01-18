@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<configuration>
+<config type="production">resources/config/production.xml</config>
+<config type="population">resources/config/population.xml</config>
+<config type="socialServices">resources/config/socialServices.xml</config>
+<config type="diplomacy">resources/config/diplomacy.xml</config>
+<config type="treaties">resources/config/treaties.xml</config>
+<config type="policies">resources/config/policies.xml</config>
+</configuration>

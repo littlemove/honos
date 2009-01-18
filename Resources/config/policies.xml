@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<policiesList>
+
+<policy money="1.0" name="Inyeccion de personal" description="Un convenio con los hospitales franceses permitira el aumento del personal en los nuestros">
+	<requeriment type="ss_healthcare_personal" value="0" interval="0.7"/>			
+	<effect type="ss_healthcare_personal" value="0.2"/>	
+</policy>
+
+<policy money="1.0" name="Ayudas para el campo" description="No proporciona una solución rápida a los problemas del campo, pero mejora la estabilidad de la producciona a medio-largo plazo.">
+	<requeriment type="pr_food_pps" value="0.0" interval="0.8"/>	
+	<effect type="pr_food_np" value="0.05"/>
+</policy>
+
+<policy money="1.0" name="Comisarias baratas" description="Abarata costes en los recursos de justica.">
+	<requeriment type="ss_justice_resourcesCostOP" value="1000.0" interval="2000.0"/>		
+	<effect type="ss_justice_resourcesCostOP" value="-0.3"/>
+</policy>
+
+</policiesList>

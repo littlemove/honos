@@ -1,0 +1,152 @@
+\documentclass[spanish,a4paper,12pt,oneside]{book}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{times}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{array}
+\usepackage{eurosym}
+\usepackage[strict]{chngpage}
+
+\pagestyle{headings}
+
+\input{macros.tex}
+
+\title{HONOS: Simulador geopolítico}
+\author{Diego Fernández Fernández}
+\date{Febrero de 2008}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\bibliographystyle{plain}
+
+\chapter*{Agradecimientos}
+
+Quiero expresar mi sincero agradecimiento por la ayuda prestada para la realización del proyecto a las siguientes personas:
+\begin{itemize}
+	\item A mi familia por su comprensión y paciencia.
+	\item A mis amigos por su apoyo e interés.
+	\item A Ángel García Voces "`Edy"' por acogerme, por el café y, sobre todo, por sus \emph{deja de programar y ponte a diseñar}.
+	\item A Daniel Gayo Avello por la dirección y el \emph{interés desinteresado}.
+	\item A Sonia H. Vazquez por sus dibujos para el interfaz de usuario y por \emph{todo lo demás}.
+\end{itemize}
+
+\begin{verse}
+	\emph{<<Todas las sombras del universo son incapaces de apagar la luz de una pequeña vela>>}
+\begin{flushright}
+(D.T.Suzuki)
+\end{flushright}
+
+\end{verse}
+
+\chapter*{Resumen}
+
+\emph{HONOS: Simulador geopolítico}, es un juego de estrategia por turnos. En él, el jugador asume el papel de un presidente de gobierno o primer ministro de un país imaginario y, como tal, deberá hacer frente a una serie de tareas para ganarse el aprecio de su población y desarrollar su país. Deberá implementar políticas, mantener relaciones internacionales, cuidar de los servicios públicos e intervenir en la producción si es necesario.\\
+
+Para ello dispondrá de tiempo y recursos limitados, por su legislatura y por le presupuesto estatal respectivamente. Para ayudar al jugador en esta tarea, dipondrá de datos actualizados sobre el estado de su país y el grado de aceptación de sus políticas entre la gente (dividida en difererentes grupos de población con intereses y posiciones sociales variadas ).\\
+
+El éxito o fracaso del jugador dependerá de la felicidad que sus ciudadanos acumulen al final de la legislatura.\\
+
+HONOS permite que los jugadores modelen la estructura interna de su país, dando lugar a estados diferentes según su poder económico, las características de los grupos poblacionales que lo componen, la bonanza en le funcionamiento de sus servicios sociales, \ldots mediante ficheros de configuración XML. ESto posibilita que el proyecto, además de un juego, pueda ser una herramienta educativa adaptable por los docentes.\\
+
+La página web del proyecto es \url{http://honos.googlecode.com/}\\
+
+\section*{Palabras clave}
+\begin{itemize}
+	\item Videojuego
+	\item Simulador
+	\item Estrategia por turnos
+	\item 2D
+	\item Configurable
+	\item Política
+\end{itemize}
+
+
+\chapter*{Abstract}
+	
+\emph{HONOS: geopolitical simulator}, is a turn based strategy game. In it, the player assumes the role of a president of government or prime minister of an imaginary country and, as such, will face a series of tasks in order to earn the esteem of their people and develop their country. It must implement policies, maintain international relations, caring for utilities and intervene in the production if necessary. \\
+
+To do so, will have limited time and resources (the legislature length and state budget). To help the player in this task, it will have an up to date information on the state of his country and the degree of acceptance of its policies among the people (divided into different groups of people with varied interests and social positions). \\
+
+Success or failure will depend on the citizens happiness that its  accumulate at the end of the legislature. \\
+
+HONOS allows players to shape the internal structure of the country, resulting in different states according to their economic power, the characteristics of its population groups, the boom in the functioning of social services, \ldots, through XML configuration files. This makes it possible for the project, in addition to a game, be a customizable educational tool.\\
+
+Project's website at \url{http://honos.googlecode.com/}\\
+
+\section*{Keywords}
+\begin{itemize}
+	\item Videogame
+	\item Simulator
+	\item Turn based strategy
+	\item 2D
+	\item Customizable
+	\item Politics
+\end{itemize}
+
+\chapter*{Licencia}
+
+\section*{Documento}
+
+El contenido de este documento se encuentra protegido por la licencia 
+\emph{Creative Commons Reconocimiento-Compartir bajo la misma licencia 2.5 España} (anexo \ref{sec:license.cc}).
+
+%\section*{Código fuente}
+%
+%El código fuente (disponible en el anexo \ref{sec:source}) se encuentra 
+%licenciado bajo la licencia \emph{GNU General Public License (GPL)}, 
+%versión 2 o superior (anexo \ref{sec:license.gpl}).
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\listoftables
+
+\newpage
+
+\mainmatter
+
+\input{introduccion.tex}
+
+\input{aspectos-teoricos.tex}
+
+\input{analisis.tex}
+
+\input{diseño.tex}
+
+\input{implementacion.tex}
+
+%\input{memoria.tex}
+%
+%\input{metodologia.tex}
+%
+%\input{conclusiones.tex}
+%
+%\appendix
+%
+\input{manual.tex}
+
+\input{anexos.tex}
+%
+%\bibliography{bibliografia}
+
+\end{document}
+

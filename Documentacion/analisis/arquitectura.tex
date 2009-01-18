@@ -1,0 +1,19 @@
+\section{Arquitectura}
+La estructura general del programa se divide en los siguientes elementos:
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=15cm]{images/diagramas/arquitectura.jpg}
+	\caption{Diagrama arquitectura}
+	\label{fig:Arquitectura}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Núcleo}: Representa los diferentes módulos que constituyen en último término la lógica de juego. Estos componentes reciben los datos proporcionados por el jugador y otros módulos y procesan en cada turno el siguiente estado de los mismos. El estado de dichos módulos es salvable y recuperable.
+	\item \textbf{Biblioteca gráfica}: Proporciona los componentes gráficos para el dibujado y la interacción con el interfaz de usuario 2D. También proporciona mecanismo de control y comunicación entre la parte gráfica y la lógica de juego.
+	\item \textbf{Datos partida}: En primera instancia estos datos son leídos de un fichero de configuración XML y definen todas las características iniciales del estado a simular y, por consiguiente, el tipo de partida que el jugador va a experimentar.
+	\item \textbf{Datos IGU}: En primera instancia estos datos son leídos de un fichero de configuración XML y definen todas las características iniciales del interfaz de usuario esto es, su apariencia, posición y tipo.
+	\item \textbf{Lógica de juego}: Se encarga de controlar el juego sincronizando los diferentes módulos. Define cual es el orden de actualización de los módulos y por lo tanto de que manera se genera el siguiente estado en cada turno.
+	\item \textbf{IGU}: Captura las entradas del usuario sobre el interfaz de usuario y las transforma de forma que sean elementos significativos para la lógica de juego.
+	\item \textbf{Jugador}: Representa al único jugador posible en un momento dado. HONOS es no es juego multijugador, por lo tanto todas las acciones provienen del mismo usuario para una misma partida.
+\end{itemize}

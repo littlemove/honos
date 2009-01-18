@@ -1,0 +1,192 @@
+\section{Requisitos}
+\newcounter{req}
+\setcounter{req}{0}
+\newcounter{subreq}
+\setcounter{subreq}{0}
+\subsection{Descripción}
+Debido a la naturaleza del problema a resolver la \textbf{instrospección} ha sido la técnica usada para realizar la captura de requisitos software.\\
+
+Esta técnica recomienda que sea el propio ingeniero de requisitos quien se ponga en el lugar del cliente y trate de imaginar como desearía el sistema. Y en base a estas suposiciones comenzar a recomendar al cliente sobre la funcionalidad que deberán presentar el sistema.
+
+\subsection{Objetivos del proyecto}
+Aquí se decriben cuales serían los critérios mínimos que debería satisfacer el proyecto para considerarse completo. Eso no quiere decir que el cumplimiento de los mismos certifique que nos encontramos ante un juego de calidad profesional (para lo cual se suele necesitar de un amplio equipo de profesionales, años de desarrollo y mucho capital) pero sí ante un proyecto que cumple con las espectativas presntadas en los objetivos del proyecto (Ver \ref{sec:objetivos}).
+
+\subsubsection{Relativos a la dinámica de juego}
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Duración de la partida & La partida tendrá una duración mínima igual al número de turnos de una legislatura. Al final de esta se aplica la condición de éxito para determinar la continuidad\\
+\hline
+\value{\arabic{req}}.\arabic{subreq}\stepcounter{subreq} & Condición de éxito & Una vez terminada la legislatura se evalua la puntuación del jugador y si es suficiente, se le permite seguir jugando.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Puntuación & La puntuación del jugador corresponde al grado de felicidad de los ciudadanos.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Turno & Un turno se compondrá de dos fases: fase interactiva y fase no-interactiva.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Turno: fase interactiva & La fase interactiva corresponde a aquella donde el jugador puede ejecutar alguna de las acciones disponibles.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Turno: fase no-interactiva & La fase  no-interactiva corresponde a aquella donde el sistema calcula los resultados de las acciones del jugador con el estado interno de la simulación y actualiza este último.\\
+\hline
+\end{tabular}
+\caption{Requisistos del Desarrollo de la partida}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & La producción del país estará representada por 3 productos o familias de productos (alimentación, energía y productos manufacturados.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Cada producto define las mismas características: dinero disponible, unidades que se producen en cada turno, coste de producción las mismas, índice de beneficios que se le aplica, índice de impuestos, subvención que reciben, capacidad máxima de producción y almacenaje, así como datos sobre la importación/exportación y consumo.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & La producción evoluciona automáticamente según el consumo, ajustando sus valores para satisfacer de la manera más real posible la ley de la oferta y la demanda.\\
+\hline
+\end{tabular}
+\caption{Requisistos de la Producción}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{9cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Intervención en la producción & El jugador podrá intervenir directamente en la producción del país de forma limitada (mediante subvenciones)\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Intervención en los servicios sociales & El jugador pordrá intervenir de forma directa en el estado de los servicios sociales mediante partidas de presupuesto para los recursos de cada servicio.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Relaciones diplomáticas & Un jugador pordrá intervenir de forma directa en las relaciones diplomáticas aceptando tratados con potencias extranjeras disponibles.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Políticas & Un jugador podrá intervenir directamente en las políticas que se llevan a cabo decidiendo cual de las disponibles se llevan a cabo.\\
+\hline
+\end{tabular}
+\caption{Requisistos de las Actividades directas del jugador}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & Los servicios sociales que ofrece el país están representados Sanidad, Educación y Justicia.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Cada servicio social define las mismas características: recursos disponibles (humanos y materiales), inversión estatal en recursos, gasto óptimo en recursos, cantidad de recursos óptimos y calidad del servicio.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & Los servicios sociales proporcionan su calidad para un turno concreto y un estado concreto y no se auto ajustan.\\
+\hline
+\end{tabular}
+\caption{Requisistos de los Servicios sociales}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & Las relaciones diplomáticas están representadas en forma de tratados que podemos realizar con alguna de las potencias disponibles, siempre y cuando cumplamos los requisitos exigidos.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Para poder mantener cualquier relación diplomática la \emph{opinión} de la otra parte debe ser suficiente. Para iniciar un tratado debemos cumplir los recursos iniciales. Para prolongarlo debemos mantenerlo entre unos valores que oscilan entre los requisitos iniciales y un valor definido.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & La opinión de un país hacia el del jugador varía segun el estado del nuestro país. Cumpir o no los requisitos de un tratado una vez firmado también afecta a la opinión.\\
+\hline
+\end{tabular}
+\caption{Requisistos de la Diplomacia}
+\end{table}
+
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & Las políticas que podemos desarrollar están representadas como una serie de requisitios que tenemos que satisfacer (inversiones, estado de la producción, \ldots) y uno serie de efectos.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Para poder poner en marcha una política debemos satisfacer los requisitos.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & Las políticas van apareciendo a medida que somos capaces de cumplir los requisitos. Esto no implica que podamos hacer más políticas cuanto más altas estén las estadísticas de nuestro país, ya que en los requisitos podremos selecionar intervalos haciendo que (por ejemplo) determinadas políticas sólo puedan ser activadas en momentos de crisis.\\
+\hline
+\end{tabular}
+\caption{Requisistos de las Políticas}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & La población está representado por diferentes grupos de opinión. La felicidad de la población representa la puntuación del jugador. Todas las actividades del juego están encaminadas a modificar la felicidad de la población.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Cada grupo de opinión corresponde a un porcentaje del total de la producción y tiene una serie de características asociadas que determinan como afectan las actividades del jugador a su felicidad.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & El número de población no varia a lo largo del juego. En cada turno se calcula el grado de satisfacción de la población analizando el estado del país.\\
+\hline
+\end{tabular}
+\caption{Requisistos de la Población}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Representación & La opinión de la de la población representa cuan importante consideran lso distintos elementos que conforman el estado país y su política\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Características & Existe un valor o peso sobre cada uno de los parámetros que conforma el país (estado de la producción, estado de los servicios sociales, estado de la diplomacia) que determina como de importante es para un grupo de población el estado de dichos parámetros.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Evolución & La opinión sobre la importancia de los diversos factores puede variar a lo largo del juego a través de la implementación de políticas.\\
+\hline
+\end{tabular}
+\caption{Requisistos de la Opinión e importancia}
+\end{table}
+
+
+\subsubsection{Relativos al interfaz de usuario}
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Perspectiva 2D & Se trata de un juego para el que una metáfora 2D es correcta y suficiente.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Ambietación & Para dotar de cierto grado de inmersión al jugador, el interfaz debe de imitar lo que sería un despacho presidencial y sus diferentes elementos (mesa de despacho, ordenador teléfono, ...).\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Estética & Los diseños tendrán un aire \emph{cartoon} o de dibujo, mezclados con alguna imagen real. En cualquier caso, se debe de dotar al interfaz de un aspecto uniforme en cuanto al estilo.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Resolución & La resolución de pantalla no puede variar.\\
+\hline
+\end{tabular}
+\caption{Requisistos del Generales}
+\end{table}
+
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{10cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Doble acceso & Se permite acceder a los controles de los diferentes módulos (políticas, producción, servicios sociales, \ldots) de dos formas: utilizando alguno de los elemtos que componen el despacho o bien mediante botones destinados a tal efecto. \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Información en pantalla & Toda la información y controles aparecen en la misma pantalla y pueden estar visibles al mismo tiempo u ocultarse.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Control & Todas las acciones del usuario se realizan mediante movimientos de ratón y pulsaciones de uno solo de sus botones (botón izquierdo).\\
+\hline
+\end{tabular}
+\caption{Requisistos de Usabilidad y accesibilad}
+\end{table}
+
+\subsubsection{Relativos a la biblioteca de componentes gráficos}
+\begin{table}[H]\stepcounter{req}\setcounter{subreq}{0}
+\begin{tabular}{ | l | l | p{9cm} |}
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Catálogo de componentes & La biblioteca proporciona los componentes necesarios para desarrollar todo el interfaz de usuario: botones, imagenes, areas de texto y slider. \\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Comportamiento de los componentes & Todos los componentes han de ser capaz de pintarse y recibir/trasnmitir eventos para proporcionar/cambiar su estado.\\
+\hline
+\arabic{req}.\arabic{subreq}\stepcounter{subreq} & Arquitectura & La biblioteca debe permitir, en cierta medida, la creación de interfaces gráficos usando la técnica IMGUI (Ver: \ref{sec:imgui}).\\
+\hline
+\end{tabular}
+\caption{Requisistos Generales}
+\end{table}

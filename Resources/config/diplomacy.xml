@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<diplomacy>
+	<foreignCountry name="england" production="0.2" ssss="0.7" population="0.1"/>
+	<foreignCountry name="france" production="0.2" ssss="0.7" population="0.1"/>
+	<foreignCountry name="usa" production="0.2" ssss="0.7" population="0.1"/>
+</diplomacy>

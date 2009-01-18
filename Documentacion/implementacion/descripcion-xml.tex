@@ -1,0 +1,411 @@
+\section{Descripción de los ficheros de configuración}
+A continuación se decriben los formatos de los ficheros XML que corresponden a la configuración de los diferentes elementos del juego.\\
+
+Junto a ellos aparecen tablas explicativas con el significado de los elementos, atributos y valores.\\
+
+%\subsection{Configuración de los parámetros del país}
+%En este fichero se describen los parámetros generales que rigen el país. Mediante la edición del mismo se puede dar lugar a diferentes estados a fin de simular realidades sociales diferentes.\\
+%\lstset{% general command to set parameter(s)
+%language=XML,
+%basicstyle=\small, % print whole listing small
+%keywordstyle=\color{black}\bfseries,
+%stringstyle=\ttfamily, % typewriter type for strings
+%showstringspaces=false} % no special string spaces
+%\begin{lstlisting}
+%<?xml version="1.0" ?>
+%<GUI>
+%	<Office winter="" fall="" spring="" summer="">
+%		<Desk x="" y="" file="">
+%			<telephone x="" y="" file=""/>
+%			<papers x="" y="" file=""/>
+%			<computer x="" y="" file=""/>
+%		</Desk>
+%		<door x="" y="" file=""/>
+%		<balcony x="" y="" file=""/>
+%		<eventTab x="" y="" file=""/>
+%		<diplomacyButton x="" y="" file="" pressedFile=""/>
+%		<countryButton x="" y="" file="" pressedFile=""/>
+%		<policiesButton x="" y="" file="" pressedFile=""/>
+%		<turnButton x="" y="" file=""  pressedFile=""/>
+%		<menuButton x="" y="" file="" pressedFile=""/>
+%		<dateArea x="" y="" file=""/>
+%	</Office>
+%</GUI>
+%\end{lstlisting}
+%
+%\begin{table}[H]
+%\begin{tabular}{ | l | l | p{10cm} |}
+%\hline
+%\textbf{Elemento} & \textbf{Descripción} & \textbf{Rango} \\
+%\hline
+%col 1 & Duración de la partida & La partida tendrá una duración mínima igual al número de turnos de una legislatura. Al final de esta se aplica la condición de éxito para determinar la continuidad\\
+%\hline
+%\end{tabular}
+%\caption{Configuración de los parámetros del país}
+%\end{table}
+
+\subsection{Configuración del interfaz de usuario}
+De este archivo se obtiene la configuración de los elementos que conforman el interfaz de usuario así como los recursos (texto y gráficos) que necesitan.\\
+\lstset{% general command to set parameter(s)
+language=XML,
+basicstyle=\small, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+<?xml version="1.0" ?>
+
+<uicomponent type="image" id="background"  x="0" y="0" z="0"  texture1="resources/images/despachoNew.png"/>
+
+<uicomponent type="button" id="openTelephone"  x="60" y="324" z="1"  texture1="resources/images/diplomacyButton.png" texture2="resources/images/diplomacyButton.png"/>
+<uicomponent type="button" id="openPolitics"  x="904" y="324" z="1"  texture1="resources/images/politicsButton.png" texture2="resources/images/politicsButton.png"/>
+<uicomponent type="button" id="openComputer"  x="512" y="648" z="1"  texture1="resources/images/computerButton.png" texture2="resources/images/computerButton.png"/>
+
+<uicomponent type="image" id="telephone"  x="0" y="112" z="2"  texture1="resources/images/telephone.png"/>
+<uicomponent type="textArea" id="chatingLabel"  x="0" y="115" z="2" w="60" h="20"  text="Al telefono: "/>
+<uicomponent type="textArea" id="chatingValue"  x="60" y="115" z="2" w="60" h="20"  text=""/>
+<uicomponent type="image" id="franceButton"  x="264" y="274" z="2" w="20" h="20" />
+<uicomponent type="image" id="englandButton"  x="360" y="285" z="2" w="20" h="20"/>
+<uicomponent type="image" id="usaButton"  x="300" y="315" z="2" w="20" h="20" />
+<uicomponent type="button" id="nextTreatyButton"  x="20" y="350" z="2" texture1="resources/images/nextUp.png" texture2="resources/images/nextDown.png"/>
+<uicomponent type="button" id="signTreatyButton"  x="220" y="350" z="2" texture1="resources/images/squareButton.png" texture2="resources/images/squareButton.png"/>
+<uicomponent type="textArea" id="activeTreaty"  x="10" y="350" z="2" w="10" h="20" text=""/>
+<uicomponent type="textArea" id="treatyName"  x="100" y="350" z="2" w="250" h="20"  text="Nombre tratado"/>
+<uicomponent type="image" id="signedTreatyImage"  x="350" y="370" z="2"  texture1="resources/images/signedPolicy.png"/>
+
+<uicomponent type="image" id="computer"  x="256" y="468" z="1"  texture1="resources/images/computer.png"/>
+
+<uicomponent type="image" id="production"  x="296" y="490" z="2"  texture1="resources/images/foo.png"/>
+
+<uicomponent type="textArea" id="foodLabel"  x="356" y="520" z="2" w="137" h="20"  text="Alimentacion"/>
+<uicomponent type="textArea" id="foodStatusLabel"  x="356" y="540" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="foodStatusValue"  x="493" y="540" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="foodConsuptionLabel"  x="356" y="560" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="foodConsuptionValue"  x="493" y="560" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="foodTaxSlider"  x="554" y="530" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="foodTaxSliderLabel"  x="590" y="515" z="2" w="58" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="foodTaxSliderValue"  x="650" y="515" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="foodSubventionLabel"  x="590" y="555" z="2" w="58" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="foodSubventionValue"  x="650" y="555" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="foodSubventionSlider"  x="554" y="570" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="energyLabel"  x="356" y="612" z="2" w="137" h="20"  text="Energia"/>
+<uicomponent type="textArea" id="energyStatusLabel"  x="356" y="632" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="energyStatusValue"  x="493" y="632" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="energyConsuptionLabel"  x="356" y="652" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="energyConsuptionValue"  x="493" y="652" z="2" w="58" h="20"  text=""/>
+<uicomponent type="textArea" id="energyTaxSliderLabel"  x="590" y="607" z="2" w="58" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="energyTaxSliderValue"  x="650" y="607" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="energyTaxSlider"  x="554" y="622" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="energySubventionLabel"  x="590" y="647" z="2" w="58" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="energySubventionValue"  x="650" y="647" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="energySubventionSlider"  x="554" y="662" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="manufacturedLabel"  x="356" y="699" z="2" w="137" h="20"  text="Pro. manufacturados"/>
+<uicomponent type="textArea" id="manufacturedStatusLabel"  x="356" y="719" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="manufacturedStatusValue"  x="493" y="719" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="manufacturedConsuptionLabel"  x="356" y="739" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="manufacturedConsuptionValue"  x="493" y="739" z="2" w="58" h="20"  text=""/>
+<uicomponent type="textArea" id="manufacturedTaxSliderLabel"  x="590" y="694" z="2" w="58" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="manufacturedTaxSliderValue"  x="650" y="694" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="manufacturedTaxSlider"  x="554" y="709" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="manufacturedSubventionLabel"  x="590" y="731" z="2" w="58" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="manufacturedSubventionValue"  x="650" y="731" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="manufacturedSubventionSlider"  x="554" y="746" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="image" id="ssss"  x="296" y="490" z="3"  texture1="resources/images/foo2.png"/>
+<uicomponent type="textArea" id="healthLabel"  x="356" y="520" z="2" w="137" h="20"  text="Sanidad"/>
+<uicomponent type="textArea" id="healthStatusLabel"  x="356" y="540" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="healthStatusValue"  x="493" y="540" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="healthCostLabel"  x="356" y="560" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="healthCostValue"  x="493" y="560" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="healthSalarySlider"  x="554" y="530" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="healthSalarySliderLabel"  x="590" y="515" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="healthSalarySliderValue"  x="650" y="515" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="healthSubventionLabel"  x="590" y="555" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="healthSubventionValue"  x="650" y="555" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="healthCostSlider"  x="554" y="570" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="educationLabel"  x="356" y="612" z="2" w="137" h="20"  text="Educacion"/>
+<uicomponent type="textArea" id="educationStatusLabel"  x="356" y="632" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="educationStatusValue"  x="493" y="632" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="educationCostLabel"  x="356" y="652" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="educationCostValue"  x="493" y="652" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="educationSalarySlider"  x="554" y="622" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="educationSalarySliderLabel"  x="590" y="607" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="educationSalarySliderValue"  x="650" y="607" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="educationSubventionLabel"  x="590" y="647" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="educationSubventionValue"  x="650" y="647" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="educationCostSlider"  x="554" y="662" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="justiceLabel"  x="356" y="699" z="2" w="137" h="20"  text="Justicia"/>
+<uicomponent type="textArea" id="justiceStatusLabel"  x="356" y="719" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="justiceStatusValue"  x="493" y="719" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="justiceCostLabel"  x="356" y="739" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="justiceCostValue"  x="493" y="739" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="justiceSalarySlider"  x="554" y="709" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="justiceSalarySliderLabel"  x="590" y="694" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="justiceSalarySliderValue"  x="650" y="694" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="justiceSubventionLabel"  x="590" y="731" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="justiceSubventionValue"  x="650" y="731" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="justiceCostSlider"  x="554" y="746" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+
+<uicomponent type="image" id="productionTab"  x="643" y="474" z="2"  texture1="resources/images/footab.png"/>
+<uicomponent type="image" id="ssssTab"  x="573" y="474" z="3"  texture1="resources/images/foo2tab.png"/>
+
+
+<uicomponent type="image" id="politics"  x="579" y="112" z="2"  texture1="resources/images/politics.png"/>
+
+<uicomponent type="button" id="closeTelephone"  x="429" y="112" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>
+<uicomponent type="button" id="closePolitics"  x="579" y="112" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>
+<uicomponent type="button" id="closeComputer"  x="742" y="468" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>\end{lstlisting}
+
+\begin{table}[H]
+\begin{tabular}{ | l | p{8cm} | l |}
+\hline
+\textbf{Elemento} & \textbf{Descripción} & \textbf{Rango} \\
+\hline
+\emph{uicomponent} & Representa un componente de la interfaz de usuario & -\\
+\hline
+\emph{type} & Tipo de componente de la interfaz de usuario & image, button, slider o textArea\\
+\hline
+\emph{id} & Identificador único del componente & -\\
+\hline
+\emph{x} & Posicón horizontal del componente en pixels & [0,1024]\\
+\hline
+\emph{y} & Posicón vertical del componente en pixels & [0,768]\\
+\hline
+\emph{z} & Profundidad del componente & [0,4]\\
+\hline
+\emph{w} & Ancho en pixels del componente & [0,1024]\\
+\hline
+\emph{h} & Largo en pixels del componente & [0,768]\\
+\hline
+\emph{texture1} & Ruta a la imagen que sirve de textura principal (buttons, sliders, images y textAreas) o barra de desplazamiento (sliders) & - \\
+\hline
+\emph{texture2} & Ruta a la imagen que sirve de textura secundaria (buttons) o botón de desplazamiento (sliders) & - \\
+\hline
+\emph{text} & Texto del componente (button y textArea) & - \\
+\hline
+\end{tabular}
+\caption{Configuración del interfaz de usuario}
+\end{table}
+
+\subsection{Configuración de actividades políticas}
+En este archivo se definen todas las actividades políticas (internas o diplomáticas) disponibles a lo largo del juego.
+\lstset{% general command to set parameter(s)
+language=XML,
+basicstyle=\small, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+<?xml version="1.0" ?>
+
+<treatyList>
+
+<treaty country="france" name="Tratado comercial" description="Este tratado supone jugosas ventajas comerciales.">
+	<requeriment type="ss_healthcare_personal" value="0" interval="1"/>	
+	<requeriment type="pr_energy_np" value="0" interval="1"/>	
+	<effect type=pr_all_cp" value="-0.5"/>
+	<effect type="pr_energy_ni" value="0.1"/>
+</treaty>
+
+<treaty country="france" name="Ejemplo de tratado" description="Descripción del tratado">
+	<requeriment type="ss_all_salary" value="0.5" interval="0"/>	
+	<effect type="ss_healthcare_personal" value="0.06"/>
+</treaty>
+
+<treaty country="france" name="Ejemplo de tratado 2" description="Descripción del tratado 2">
+	<requeriment type="ss_all_salary" value="0.5" interval="0"/>	
+	<effect type="ss_healthcare_personal" value="0.06"/>
+</treaty>
+</treatyList>
+\end{lstlisting}
+
+\begin{table}[H]
+\begin{tabular}{ | l | p{8cm} | l |}
+\hline
+\textbf{Elemento} & \textbf{Descripción} & \textbf{Rango} \\
+\hline
+\emph{treaty} & Tratado diplomático & -\\
+\hline
+\emph{country} & Destinatario del tratado diplomático & france, england o usa\\
+\hline
+\emph{name} & Nombre del tratado & -\\
+\hline
+\emph{description} & Descripción del tratado & -\\
+\hline
+\emph{requeriment} & Describe un requerimiento de una actividad política & -\\
+\hline
+\emph{effect} & Describe un efecto de una actividad política & -\\
+\hline
+\emph{type} & Indica a que factor de la simulación afecta & -\\
+\hline
+\emph{value} & Indica el valor necesario para cumplir el requerimiento (requeriment) o el bonus del efecto (effect) & -\\
+\hline
+\emph{interval} & Indica el intervalo en que puede variar un requerimiento para seguir siendo cumplido & -\\
+\hline
+\end{tabular}
+\caption{Configuración de las actividades políticas}
+\end{table}
+
+\subsection{Configuración de grupos de población}
+En este archivo se guarda la configuración de los diferentes grupos poblacionales. Mediante su edición podemos conformar sociedades más o menos heterogeneas.\\
+\lstset{% general command to set parameter(s)
+language=XML,
+basicstyle=\small, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+<?xml version="1.0" ?>
+<population>
+	
+	<populationGroup name="conservatives" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.5</opinion>
+		<opinion type="food">1</opinion>
+		<opinion type="energy">1</opinion>
+		<opinion type="manufactured">1</opinion>
+		<opinion type="education">1</opinion>
+		<opinion type="justice">1</opinion>
+	</populationGroup>
+	
+	<populationGroup name="merchants" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.5</opinion>
+		<opinion type="food">1</opinion>
+		<opinion type="energy">1</opinion>
+		<opinion type="manufactured">1</opinion>
+		<opinion type="education">1</opinion>
+		<opinion type="justice">1</opinion>
+	</populationGroup>
+	
+	<populationGroup name="ultrademocrats" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.6</opinion>
+		<opinion type="food">2</opinion>
+		<opinion type="energy">1</opinion>
+		<opinion type="manufactured">1</opinion>
+		<opinion type="education">1</opinion>
+		<opinion type="justice">1</opinion>
+	</populationGroup>
+	
+	<populationGroup name="asilanders" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.5</opinion>
+		<opinion type="food">1</opinion>
+		<opinion type="energy">1</opinion>
+		<opinion type="manufactured">1</opinion>
+		<opinion type="education">1</opinion>
+		<opinion type="justice">1</opinion>
+	</populationGroup>
+	
+	<populationGroup name="greens" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.5</opinion>
+		<opinion type="food">1</opinion>
+		<opinion type="energy">1</opinion>
+		<opinion type="manufactured">1</opinion>
+		<opinion type="education">1</opinion>
+		<opinion type="justice">1</opinion>
+	</populationGroup>
+	
+</population>
+\end{lstlisting}
+
+\begin{table}[H]
+\begin{tabular}{ | l | p{8cm} | p{3cm} |}
+\hline
+\textbf{Elemento} & \textbf{Descripción} & \textbf{Rango} \\
+\hline
+\emph{populationGroup} & Representa un grupo de población & -\\
+\hline
+\emph{name} & Nombre del grupo de población & conservatives, merchants, aislanders, greens o ultrademocrats\\
+\hline
+\emph{size} & Porcentaje de población que representa el grupo & [0,1]\\
+\hline
+\emph{purchansingPower} & Porcentaje de riqueza que acumula el grupo & [0,1]\\
+\hline
+\emph{opinion} & Representa una opinión sobre cierto parámetro del país & [0,1]\\
+\hline
+\emph{type} & Indica a que factor de la simulación la que afecta &  health, food, manufactured, education o justice\\
+\hline
+\end{tabular}
+\caption{Configuración de los grupos de población}
+\end{table}
+
+\subsection{Configuración de productos}
+En este archivo se describen las características de cada uno de los productos que conforman la producción del estado del jugador.\\
+\lstset{% general command to set parameter(s)
+language=XML,
+basicstyle=\small, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+<?xml version="1.0" ?>
+<production>
+	<product name="food" np="1.0" cp="1.0"  maxStorageCapacity="10" maxTotalProduct="5.0" money="10.0" storage="10"/>
+	<product name="energy" np="1.0" cp="1.0"  maxStorageCapacity="10" maxTotalProduct="5.0" money="10.0" storage="10"/>
+	<product name="manufactured" np="1.0" cp="1.0"  maxStorageCapacity="10" maxTotalProduct="5.0" money="10.0" storage="10"/>
+</production>
+\end{lstlisting}
+
+\begin{table}[H]
+\begin{tabular}{ | l | p{5cm} | l |}
+\hline
+\textbf{Elemento} & \textbf{Descripción} & \textbf{Rango} \\
+\hline
+\emph{product} & Representa un producto de la producción & -\\
+\hline
+\emph{name} & Nombre del producto de la producción & food, energy o manufactured\\
+\hline
+\emph{np} & Número de unidades que inicial produciendo & > 0\\
+\hline
+\emph{np} & Coste de producción por unidad & > 0\\
+\hline
+\emph{maxStorageCapacity} & Máxima capacidad de almacenaje de unidades & > 0\\
+\hline
+\emph{maxTotalProduct} & Máxima capacidad de almacenaje de producción & > 0\\
+\hline
+\emph{money} & Dinero disponible inicialmente & > 0\\
+\hline
+\emph{storage} & Almacen disponible inicialmente & > 0\\
+\hline
+\end{tabular}
+\caption{Configuración de los productos}
+\end{table}
+
+\subsection{Configuración de los servicios sociales}
+En este archivo se describen las características de cada uno de los servicios sociales del estado del jugador.\\
+
+\lstset{% general command to set parameter(s)
+language=XML,
+basicstyle=\small, % print whole listing small
+keywordstyle=\color{black}\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false} % no special string spaces
+\begin{lstlisting}
+<?xml version="1.0" ?>
+<socialServices>
+	<socialService name="health" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.5" resourcesImportance="0.5"/>
+	<socialService name="education" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.5" resourcesImportance="0.5"/>
+	<socialService name="justice" salaryop="1000.0" resourcesop="2000.0" personalImportance="0.5" resourcesImportance="0.5"/>
+</socialServices>\end{lstlisting}
+
+\begin{table}[H]
+\begin{tabular}{ | l | p{5cm} | p{5cm} |}
+\hline
+\emph{socialService} & Representa un servicio social & -\\
+\hline
+\emph{name} & Nombre del servicio social & health, education o justice\\
+\hline
+\emph{salaryop} & Salario óptimo para el personal & > 0\\
+\hline
+\emph{resourcesop} & Inversión óptima en recursos materiales & > 0\\
+\hline
+\emph{personalImportance} & Importancia del personal & [0,1] \\
+\hline
+\emph{resources Importance} & Importancia de los recursos materiales & [0,1] \\
+\hline
+\end{tabular}
+\caption{Configuración de los servicios sociales}
+\end{table}

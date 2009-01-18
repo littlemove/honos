@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<uicomponent type="image" id="background"  x="0" y="0" z="0"  texture1="resources/images/despachoNew.png"/>
+<uicomponent type="image" id="lock"  x="0" y="0" z="4"  texture1="resources/images/lock.png"/>
+
+<uicomponent type="image" id="startScreen"  x="361" y="250" z="4"  texture1="resources/images/startScreen.png"/>
+<uicomponent type="button" id="startButton"  x="530" y="355" z="5"  texture1="resources/images/startButton.png" texture2="resources/images/startButton.png"/>
+
+<uicomponent type="image" id="exitScreen"  x="361" y="250" z="4"  texture1="resources/images/exitScreen.png"/>
+<uicomponent type="button" id="yes"  x="505" y="355" z="5"  texture1="resources/images/yesButton.png" texture2="resources/images/yesButtonP.png"/>
+<uicomponent type="button" id="no"  x="555" y="360" z="5"  texture1="resources/images/noButton.png" texture2="resources/images/noButtonP.png"/>
+
+<uicomponent type="button" id="openTelephone"  x="60" y="324" z="1"  texture1="resources/images/diplomacyButton.png" texture2="resources/images/diplomacyButton.png"/>
+<uicomponent type="button" id="openPolitics"  x="904" y="324" z="1"  texture1="resources/images/politicsButton.png" texture2="resources/images/politicsButton.png"/>
+<uicomponent type="button" id="openComputer"  x="512" y="648" z="1"  texture1="resources/images/computerButton.png" texture2="resources/images/computerButton.png"/>
+<uicomponent type="button" id="nextTurn"  x="970" y="720" z="1"  texture1="resources/images/nextTurnButton.png" texture2="resources/images/nextTurnButtonP.png"/>
+<uicomponent type="button" id="exit"  x="970" y="680" z="1"  texture1="resources/images/exitButton.png" texture2="resources/images/exitButtonP.png"/>
+<uicomponent type="textArea" id="turn"  x="850" y="740" z="1" w="100" h="24" text=""/>
+
+<uicomponent type="image" id="telephone"  x="0" y="112" z="2"  texture1="resources/images/telephone.png"/>
+<uicomponent type="textArea" id="chatingLabel"  x="0" y="115" z="2" w="80" h="20"  text="Al telefono: "/>
+<uicomponent type="textArea" id="chatingValue"  x="80" y="115" z="2" w="80" h="20"  text=""/>
+<uicomponent type="image" id="franceButton"  x="264" y="274" z="2" w="20" h="20" />
+<uicomponent type="image" id="englandButton"  x="360" y="285" z="2" w="20" h="20"/>
+<uicomponent type="image" id="usaButton"  x="300" y="315" z="2" w="20" h="20" />
+<uicomponent type="button" id="nextTreatyButton"  x="20" y="350" z="2" texture1="resources/images/nextUp.png" texture2="resources/images/nextDown.png"/>
+<uicomponent type="button" id="signTreatyButton"  x="360" y="350" z="2" texture1="resources/images/signPolicy.png" texture2="resources/images/signPolicyP.png"/>
+<uicomponent type="textArea" id="activeTreaty"  x="10" y="350" z="2" w="10" h="20" text=""/>
+<uicomponent type="textArea" id="treatyName"  x="100" y="350" z="2" w="250" h="20"  text="Nombre tratado"/>
+<uicomponent type="textArea" id="treatyDescription"  x="100" y="370" z="2" w="250" h="80"  text=""/>
+<uicomponent type="image" id="signedTreatyImage"  x="380" y="370" z="2"  texture1="resources/images/signedPolicy.png"/>
+
+<uicomponent type="image" id="computer"  x="256" y="468" z="1"  texture1="resources/images/computer.png"/>
+
+<uicomponent type="image" id="production"  x="296" y="490" z="2"  texture1="resources/images/foo.png"/>
+
+<uicomponent type="textArea" id="foodLabel"  x="356" y="520" z="2" w="137" h="20"  text="Alimentacion"/>
+<uicomponent type="textArea" id="foodStatusLabel"  x="356" y="540" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="foodStatusValue"  x="493" y="540" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="foodConsuptionLabel"  x="356" y="560" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="foodConsuptionValue"  x="493" y="560" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="foodTaxSlider"  x="554" y="530" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="foodTaxSliderLabel"  x="580" y="515" z="2" w="65" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="foodTaxSliderValue"  x="650" y="515" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="foodSubventionLabel"  x="580" y="555" z="2" w="70" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="foodSubventionValue"  x="650" y="555" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="foodSubventionSlider"  x="554" y="570" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="energyLabel"  x="356" y="612" z="2" w="137" h="20"  text="Energia"/>
+<uicomponent type="textArea" id="energyStatusLabel"  x="356" y="632" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="energyStatusValue"  x="493" y="632" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="energyConsuptionLabel"  x="356" y="652" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="energyConsuptionValue"  x="493" y="652" z="2" w="58" h="20"  text=""/>
+<uicomponent type="textArea" id="energyTaxSliderLabel"  x="580" y="607" z="2" w="65" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="energyTaxSliderValue"  x="650" y="607" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="energyTaxSlider"  x="554" y="622" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="energySubventionLabel"  x="580" y="647" z="2" w="70" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="energySubventionValue"  x="650" y="647" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="energySubventionSlider"  x="554" y="662" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="manufacturedLabel"  x="356" y="699" z="2" w="137" h="20"  text="Pro. manufacturados"/>
+<uicomponent type="textArea" id="manufacturedStatusLabel"  x="356" y="719" z="2" w="137" h="20"  text="Estado de la produccion: "/>
+<uicomponent type="textArea" id="manufacturedStatusValue"  x="493" y="719" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="manufacturedConsuptionLabel"  x="356" y="739" z="2" w="58" h="20"  text="Consumo: "/>
+<uicomponent type="textArea" id="manufacturedConsuptionValue"  x="493" y="739" z="2" w="58" h="20"  text=""/>
+<uicomponent type="textArea" id="manufacturedTaxSliderLabel"  x="580" y="694" z="2" w="65" h="20"  text="Impuestos: "/>
+<uicomponent type="textArea" id="manufacturedTaxSliderValue"  x="650" y="694" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="manufacturedTaxSlider"  x="554" y="709" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="manufacturedSubventionLabel"  x="580" y="731" z="2" w="70" h="20"  text="Subvencion: "/>
+<uicomponent type="textArea" id="manufacturedSubventionValue"  x="650" y="731" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="manufacturedSubventionSlider"  x="554" y="746" z="2"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="image" id="ssss"  x="296" y="490" z="3"  texture1="resources/images/foo2.png"/>
+<uicomponent type="textArea" id="healthLabel"  x="356" y="520" z="2" w="137" h="20"  text="Sanidad"/>
+<uicomponent type="textArea" id="healthStatusLabel"  x="356" y="540" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="healthStatusValue"  x="493" y="540" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="healthCostLabel"  x="356" y="560" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="healthCostValue"  x="493" y="560" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="healthSalarySlider"  x="554" y="530" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="healthSalarySliderLabel"  x="590" y="515" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="healthSalarySliderValue"  x="650" y="515" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="healthSubventionLabel"  x="590" y="555" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="healthSubventionValue"  x="650" y="555" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="healthCostSlider"  x="554" y="570" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="educationLabel"  x="356" y="612" z="2" w="137" h="20"  text="Educacion"/>
+<uicomponent type="textArea" id="educationStatusLabel"  x="356" y="632" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="educationStatusValue"  x="493" y="632" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="educationCostLabel"  x="356" y="652" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="educationCostValue"  x="493" y="652" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="educationSalarySlider"  x="554" y="622" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="educationSalarySliderLabel"  x="590" y="607" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="educationSalarySliderValue"  x="650" y="607" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="educationSubventionLabel"  x="590" y="647" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="educationSubventionValue"  x="650" y="647" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="educationCostSlider"  x="554" y="662" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="textArea" id="justiceLabel"  x="356" y="699" z="2" w="137" h="20"  text="Justicia"/>
+<uicomponent type="textArea" id="justiceStatusLabel"  x="356" y="719" z="2" w="137" h="20"  text="Estado del servicio: "/>
+<uicomponent type="textArea" id="justiceStatusValue"  x="493" y="719" z="2" w="137" h="20"  text=""/>
+<uicomponent type="textArea" id="justiceCostLabel"  x="356" y="739" z="2" w="58" h="20"  text="Coste: "/>
+<uicomponent type="textArea" id="justiceCostValue"  x="493" y="739" z="2" w="58" h="20"  text=""/>
+<uicomponent type="slider" id="justiceSalarySlider"  x="554" y="709" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+<uicomponent type="textArea" id="justiceSalarySliderLabel"  x="590" y="694" z="2" w="58" h="20"  text="Salario: "/>
+<uicomponent type="textArea" id="justiceSalarySliderValue"  x="650" y="694" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="textArea" id="justiceSubventionLabel"  x="590" y="731" z="2" w="58" h="20"  text="Recursos: "/>
+<uicomponent type="textArea" id="justiceSubventionValue"  x="650" y="731" z="2" w="58" h="20"  text="0%"/>
+<uicomponent type="slider" id="justiceCostSlider"  x="554" y="746" z="3"  texture1="resources/images/sliderBar.png" texture2="resources/images/sliderButton.png"/>
+
+<uicomponent type="image" id="status"  x="296" y="490" z="4"  texture1="resources/images/foo3.png"/>
+<uicomponent type="textArea" id="statusText"  x="300" y="500" z="4" w="400" h="280"  text=""/>
+
+<uicomponent type="image" id="productionTab"  x="643" y="474" z="2"  texture1="resources/images/footab.png"/>
+<uicomponent type="image" id="ssssTab"  x="573" y="474" z="3"  texture1="resources/images/foo2tab.png"/>
+<uicomponent type="image" id="statusTab"  x="503" y="474" z="3"  texture1="resources/images/foo3tab.png"/>
+
+
+<uicomponent type="image" id="politics"  x="579" y="112" z="2"  texture1="resources/images/politics.png"/>
+<uicomponent type="textArea" id="policyName"  x="650" y="170" z="3" w="250" h="24"  text=""/>
+<uicomponent type="textArea" id="policyDescription"  x="640" y="200" z="3" w="300" h="150"  text=""/>
+<uicomponent type="button" id="nextPolicyButton"  x="650" y="350" z="2" texture1="resources/images/nextUp.png" texture2="resources/images/nextDown.png"/>
+<uicomponent type="button" id="signPolicyButton"  x="750" y="350" z="2" texture1="resources/images/signPolicy.png" texture2="resources/images/signPolicyP.png"/>
+<uicomponent type="image" id="signedPolicyImage"  x="750" y="350" z="2"  texture1="resources/images/sign.png"/>
+
+
+<uicomponent type="button" id="closeTelephone"  x="429" y="112" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>
+<uicomponent type="button" id="closePolitics"  x="579" y="112" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>
+<uicomponent type="button" id="closeComputer"  x="742" y="468" z="2"  texture1="resources/images/closeButton.png" texture2="resources/images/closeButton.png"/>

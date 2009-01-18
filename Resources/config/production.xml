@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<production>
+	<product name="food" np="10.0" cp="1.0" ii="0.0" maxStorageCapacity="10" maxTotalProduct="10.0" money="10.0" storage="10"/>
+	<product name="energy" np="30.0" cp="5.0" ii="0.0" maxStorageCapacity="10" maxTotalProduct="10.0" money="10.0" storage="10"/>
+	<product name="manufactured" np="50.0" cp="10.0" ii="0.0" maxStorageCapacity="10" maxTotalProduct="10.0" money="10.0" storage="10"/>
+</production>

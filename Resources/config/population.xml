@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<population>
+	
+	<populationGroup name="conservatives" size="0.1" purchasingPower="0.3">		
+		<opinion type="health">0.0</opinion>
+		<opinion type="education">0.2</opinion>
+		<opinion type="justice">1.0</opinion>
+		<opinion type="food">1.0</opinion>
+		<opinion type="energy">1.0</opinion>
+		<opinion type="manufactured">1.0</opinion>		
+	</populationGroup>
+	
+	<populationGroup name="merchants" size="0.2" purchasingPower="0.2">
+		<opinion type="health">0.5</opinion>
+		<opinion type="education">0.25</opinion>
+		<opinion type="justice">1.0</opinion>
+		<opinion type="food">1.0</opinion>
+		<opinion type="energy">1.0</opinion>
+		<opinion type="manufactured">0.6</opinion>
+	</populationGroup>
+	
+	<populationGroup name="ultrademocrats" size="0.4" purchasingPower="0.2">
+		<opinion type="health">1.0</opinion>
+		<opinion type="education">1.0</opinion>
+		<opinion type="justice">0.5</opinion>
+		<opinion type="food">1.0</opinion>
+		<opinion type="energy">0.5</opinion>
+		<opinion type="manufactured">0.3</opinion>
+	</populationGroup>
+	
+	<populationGroup name="aislanders" size="0.15" purchasingPower="0.05">
+		<opinion type="health">0.5</opinion>
+		<opinion type="education">1.0</opinion>
+		<opinion type="justice">0.5</opinion>
+		<opinion type="food">1.0</opinion>
+		<opinion type="energy">0.2</opinion>
+		<opinion type="manufactured">0.2</opinion>
+	</populationGroup>
+	
+	<populationGroup name="greens" size="0.15" purchasingPower="0.15">
+		<opinion type="health">1.0</opinion>
+		<opinion type="education">1.0</opinion>
+		<opinion type="justice">1.0</opinion>
+		<opinion type="food">1.0</opinion>
+		<opinion type="energy">0.2</opinion>
+		<opinion type="manufactured">0.4</opinion>
+	</populationGroup>
+	
+</population>

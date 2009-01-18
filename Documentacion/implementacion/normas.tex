@@ -1,0 +1,52 @@
+\section{Estándares y normas seguidos}
+La implementación del proyecto sigue el estándar ISO/IEC   JTC1/SC22/WG21 para C++ en la medida de lo posible, esto es: 
+\begin{itemize}
+	\item Todo el código escrito específicamente para el proyecto respeta el estándar.
+	\item No se utiliza ninguna clase/biblioteca de clases de apoyo que no provenga de la estandarizada STL.
+	\item En el caso de no cumplirse la segunda condición, la clase/ biblioteca de clases utilizada respeta la primera condición.
+	\item Existe una única excepción a estas normas en la implementación de ciertos componentes de la biblioteca de clases del interfaz gráfico de usuario; dicha implementación está irremediablemente ligada a la tecnología usada para comunicarse con los dispositivos de visualización, y que en esta implementación concreta, pertenecen a una tecnología propietaria de la que se carece de código fuente, por lo tanto no puede garantizarse la primera condición.
+\end{itemize}
+
+En cuanto a la construcción de las clases, se sigue una política estricta en cuanto a la inicialización y liberación de recursos, así como en el tratamiento de errores.
+
+\section{Inicialización y liberación de recursos}
+Todos los objetos reservan recursos y se inicializan de forma atómica en el constructor, aplicando el patrón de implementación Resource Adquisition Is Initialization (Ver: RAII \ref{sec:raii}). De la misma forma, la destrucción de los mismos provoca la liberación incondicional de los recursos.
+Los objetos instanciados están completamente inicializados y listos para su uso.
+
+\section{Manejo de errores}
+Por regla general se evita el uso de excepciones salvo para casos excepcionales, como pueden ser los errores en la inicialización de objetos.
+
+\section{Notación}
+Salvo los comentarios, el código está escrito en inglés. Esta decisión está relacionada con la liberación del código del proyecto, esperando que la mayor difusión del inglés en el ámbito de la programación facilite a quien lo quiera el trabajo con el mismo.\\
+
+En cuanto a la notación para nombrado de clases, métodos, variables, etc, se ha optado por una variación de la notación húngara, simplemente por considerar que facilita la lectura y entendimiento del código. Así pues, la notación es consistente con las siguientes normas:
+
+\begin{table}[H]	
+		\begin{tabular}{| l | p{10cm} |}
+		\hline
+			\textbf{Nombres de clase y estructuras} &	Primera letra en mayúscula. Si se compone de dos o más palabras no se separan, cada palabra lleva la primera letra en mayúscula.\\
+			\hline
+			\textbf{Nombres de métodos y funciones} &	Primera letra en minúscula. Si se compone de dos o más palabras no se separan, cada palabra lleva la primera letra en mayúscula.\\				
+			\hline
+			\textbf{Booleanos} &	Prefijo b\\
+			\hline
+			\textbf{Enteros} &	Prefijo i\\
+			\hline
+			\textbf{Doubles} &	Prefijo d\\
+			\hline
+			\textbf{Arrays} &	Prefijo a\\
+			\hline
+			\textbf{Punteros} &	Prefijo p\\
+			\hline
+			\textbf{Cadenas de caracteres anchos} &	Prefijo ws\\
+			\hline
+			\textbf{Arrays de caracteres anchos} &	Prefijo pwc\\				
+			\hline
+			\textbf{Miembros de clase / atributos} &	Prefijo m\\
+			\hline
+			\textbf{Variables globales} &	Prefijo g\\
+			\hline
+		\end{tabular}
+	\caption{Notación}
+	\label{tab:Notación}
+\end{table}

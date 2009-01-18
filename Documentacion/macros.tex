@@ -1,0 +1,126 @@
+% El código de estas macros y sus comentarios son obra de Sergio Fernández López (http://www.wikier.org).
+
+%tÃ­tulo segÃºn la portada oficial de PFC's de la EUITIO
+\newcommand{\TituloPFC}{\uppercase{HONOS: Simulador geopolítico}}
+\newcommand{\AutorPFC}{Diego Fernández Fernández}
+\newcommand{\DirectorPFC}{Daniel Gayo Avello}
+
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+
+	%portada del tomo
+	\begin{center}
+                {%
+                    \includegraphics[width=3.5cm]{images/uniovi.png}\\
+                }
+                {%
+                    \Large\textrm{\textbf{UNIVERSIDAD DE OVIEDO}}\\
+                }
+                {%
+                    \Large\textrm{Escuela Universitaria de Ingeniería\\Técnica en Informática de Oviedo}\\
+                    \vspace{4cm}
+                }
+                {%
+                    \Large\textrm{\textbf{PROYECTO FIN DE CARRERA}}\\
+                    \vspace{5cm}
+                }
+                {%
+                    \Large\textrm{\TituloPFC}\\
+                    \vspace{5cm}
+                }
+	\end{center}
+	\begin{flushright}
+		\Large\textrm{\AutorPFC}
+	\end{flushright}
+	\pagestyle{empty}
+	\cleardoublepage
+
+	%portada de dentro
+	\begin{center}
+                {%
+                    \Large\textrm{\textbf{UNIVERSIDAD DE OVIEDO}}\\
+                    \vspace{2cm}
+                }
+                {%
+                    \includegraphics[width=3.5cm]{images/uniovi.png}
+                    \hspace{5cm}
+                    \includegraphics[width=3cm]{images/euitio.png}\\
+                    \vspace{1cm}
+                }
+                {%
+                    \Large\textrm{ESCUELA UNIVERSITARIA DE INGENIERÍA TÉCNICA EN INFORMÁTICA DE OVIEDO}\\
+                    \vspace{3cm}
+                }
+                {%
+                    \Large\textrm{\textbf{PROYECTO FIN DE CARRERA}}\\
+                    \vspace{3cm}
+                }
+                {%
+                    \Large\textrm{\TituloPFC}\\
+                    \vspace{3cm}
+                }
+	\end{center}
+            {
+                \bfseries
+                \begin{tabular}{cp{2cm}l}
+                \begin{tabular}{|p{5cm}|}
+                    \hline
+                    \\
+                    \\
+                    \\
+                    {\scriptsize \textbf{VºBº del Director del Proyecto}}\\
+                    \hline
+                \end{tabular}
+		&
+		&
+                \begin{tabular}{ll}
+                        {\footnotesize\textrm\textbf{DIRECTORES:}} &
+                        {\textrm\textbf{\DirectorPFC}} \\ &                       
+                        \vspace{0.5cm}\\
+                        {\footnotesize\textrm\textbf{AUTOR:}} &
+                        {\textrm\textbf{\AutorPFC}}
+                \end{tabular}
+                \end{tabular}
+            }
+	\pagestyle{empty}
+	\cleardoublepage
+    \end{titlepage}
+}
+
+%cabeceras (con el paquete "fancyhdr")
+\headheight 15pt
+
+%macro que me ha chivado Frade, extraido del libro Â«LaTeX, una imprenta en sus manosÂ», para aÃ±adir la bibliografÃ­a al indice
+\let\OLDthebibliography=\thebibliography
+\def\thebibliography#1{\OLDthebibliography{#1}%
+	\addcontentsline{toc}{chapter}{\bibname}}
+
+%renombrar las tablas (no funciona)
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Indice de tablas}
+
+%colores
+\definecolor{darkred}{rgb}{0.5, 0, 0}
+\definecolor{violet}{rgb}{1, 0, 1}
+\definecolor{green}{rgb}{0.3, 0.95, 0.3}
+\definecolor{listinggray}{gray}{0.97}
+
+%listings
+\lstset{
+	basewidth=0.50em,
+	backgroundcolor=\color{listinggray},
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\bfseries,
+	stringstyle=\itshape,
+	commentstyle=\itshape,
+	showspaces=false,
+	showtabs=false,
+	showstringspaces=false,
+	frame=trbl,
+	extendedchars=true,
+	numbers=none,
+	aboveskip=0.5cm,
+	belowskip=0.5cm,
+	xleftmargin=0cm,
+	xrightmargin=0cm
+}

@@ -1,0 +1,74 @@
+\section{Diseño del juego}
+
+\subsection{Descripción}
+
+\subsubsection{Visión general}
+HONOS es un juego de estrategia por turnos que trata de simular la actividad de un gobernante de un estado imaginario ubicado en el contexto geopolítico actual.\\
+
+Pese a las obvias simplificaciones que son necesarias para modelar un sistema de este tipo, dado los recursos de los que se dispone, HONOS pretende ser (además de un juego) una herramienta educativa que sirva para acercar diversas realidades políticas y sociales relacionadas con la gestión de un país al público general y los amantes de los videojuegos en general.\\
+
+Aunque no es un objetivo primordial, si se busca cierto grado de adaptabilidad a diferentes situaciones políticas y culturales, con el fin de que pueda utilizarse en entornos pedagógicos concretos y delimitados.
+
+\subsubsection{Objetivo del juego}
+El objetivo del juego es conseguir el mayor bienestar posible para la población. Este se mide en puntos de felicidad y se calcula mediante una ecuación atendiendo al estado actual del país, las políticas implementadas durante la partida y las relaciones diplomáticas establecidas.
+
+\subsubsection{Perspectiva}
+El juego se desarrolla en un entorno 2D que consiste en un interfaz de gestión compuesto por diferentes metáforas gráficas con las que el jugador puede interactuar, ya sea para consultar el estado actual de los parámetros del juego que le son presentados, como para interactuar con los diferentes elementos a su alcance.\\
+
+La metáfora principal del interfaz es un despacho de trabajo con diferentes elementos (ordenador, teléfono, informes, etc) que representan diferentes actividades a realizar. La interacción con alguno de estos elementos provocará que sobre el interfaz principal aparezcan nuevos elementos sobre una zona delimitada, agrupados según la función a realizar.\\
+
+El pantalla de juego está diseñada de forma que se puedan tener abiertos diferentes interfaces secundarios asegurándose siempre de que no interfieren forma visual unos con otros (es decir, al aparición de un interfaz secundario nunca puede ocultar otro interfaz previamente abierto).\\
+
+Además de los elementos gráficos de la pantalla principal, existe una barra de herramientas siempre visible que permite abrir los mismos interfaces sin tener que hacer uso de la metáfora visual que representa el despacho, dando así la oportunidad al jugador de interactuar de dos formas: primando la inmersión o la rapidez de acceso.
+
+\subsubsection{Controles}
+El control se realiza mediante el ratón. Sólo es necesario este (utilizando, además, solamente un botón) para interactuar con todo el interfaz de usuario de HONOS. Este sistema corresponde a un planteamiento de usabilidad consistente en proporcionar una interacción con el usuario los más accesible posible.
+
+\subsubsection{Desarrollo del juego}
+El juego se desarrolla por turnos cuya duración marca el jugador: cuando este considera que ha realizado todas las acciones oportunas y permitidas, podrá avanzar al siguiente turno.\\
+
+Cada turno se compone de dos fases, que se caracterizan por la presencia o ausencia de interacción por parte del usuario:
+\begin{itemize}
+	\item Fase interactiva. Durante este periodo el jugador puede realizar ninguna, alguna o todas las acciones que aparecen a continuación:
+\begin{itemize}
+	\item Consultar los datos que están a su disposición (encuestas de popularidad, estado de la producción, estado de los servicios públicos, estado de las relaciones diplomáticas, \ldots)
+	\item Intervenir en la producción. Para ello puede elegir el dinero del presupuesto destinado a la subvención en la fabricación de productos y el porcentaje de impuestos que se cobra por la venta de esos productos.
+	\item Intervenir en los servicios públicos. Para ello se puede regular la inversión en infraestructuras y el sueldo que se paga a los funcionarios.
+	\item Mantener relaciones diplomáticas. Con los países de los que se disponga embajada será posible tratar de establecer ciertas relaciones diplomáticas (tratados comerciales, armamentísticos, \ldots).
+	\item Aprobar políticas.
+\end{itemize}
+	\item Fase de cálculo. En esta fase se utilizan los parámetros internos que el programa almacena y se procesan junto con los recibidos por parte del usuario en la fase interactiva, para realizar los cálculos que definirán el estado del país en el siguiente turno.
+\end{itemize}
+
+\subsection{Elementos de juego}
+\subsubsection{Población}
+La población es el elemento más importante del juego. Las características principales de la población son:
+\begin{itemize}
+	\item Tiene un tamaño determinado.
+	\item Se subdivide en diversos grupos que representan un porcentaje del total de la población.
+	\item La población en general y cada subgrupo en particular dispone de una serie de características que determinan su estado en un turno dado: la felicidad indica la satisfacción con respecto al rumbo del país y por lo tanto mide la puntuación del jugador y el consumo de cada uno de los productos de la producción.
+\end{itemize}
+
+\subsubsection{Servicios sociales}
+Los servicios sociales son aquellos ofrecidos por el estado y de acceso gratuito y universal para todos los ciudadanos del mismo.\\
+
+En el juego se tienen en cuenta 3 considerados los más representativos:
+\begin{itemize}
+	\item Sanidad
+	\item Educación
+	\item Justicia
+\end{itemize}
+
+Para la simulación todos ellos se comportan de manera parecida: tienen una serie de personal y recursos asignados por los que hay que invertir una cantidad de dinero cada turno. El funcionamiento de los mismos se mide en relación a su calidad y es este parámetro el que tiene en cuenta la población.\\
+
+Para baremar la calidad de un servicio partimos de una serie de datos obtenidos mediante la consulta de las fuentes de información pertinentes dependiendo del servicio y conforman un estado de calidad \emph{ideal}. Por ejemplo, para sanidad, cual es el número de camas y personal óptimo por cada 10.000 habitantes según la OMS , cual es el sueldo base del personal y cuanto cuesta mantener los recursos. A partir de ahí la simulación se mueve entre el nivel óptimo que hemos definido como límite superior.
+
+\subsubsection{Diplomacia}
+El juego permite establecer relaciones diplomáticas en forma de tratados. Dichas relaciones suponen diversos efectos en los parámetros del país (cambios en la producción, felicidad de la población, etc).\\
+
+Para poder establecer relaciones diplómaticas se deben cumplir, en orden, estos dos factores:
+\begin{enumerate}
+	\item La opinión de la nación con la que tratamos de mantener relaciones tiene que ser suficiente. Dicha opinión se forja a partir de la situación actual de nuestro estado y, de existir, las relaciones anteriores la potencia extranjera.
+	\item Cumplimos una serie de requisitos específicos al tratado, que provienen del estado actual de nuestro país.
+\end{enumerate}
+

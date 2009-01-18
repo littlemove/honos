@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<treatyList>
+
+<treaty country="france" name="Inyeccion de personal" description="Un convenio con los hospitales franceses permitira el aumento del personal en los nuestros">
+	<requeriment type="ss_healthcare_personal" value="0" interval="0.7"/>			
+	<effect type="ss_healthcare_personal" value="0.2"/>	
+</treaty>
+
+<treaty country="france" name="Prueba3" description="tratado de prueba con texto largo o algo. tralara jander klander what a fuck jooorl. ahi va que chorrazo.">
+	<requeriment type="ss_healthcare_personal" value="2" interval="0"/>	
+	<effect type="ss_healthcare_personal" value="2"/>
+</treaty>
+
+<treaty country="england" name="Comisarias baratos" description="Abarata costes en los recursos de justica.">
+	<requeriment type="ss_justice_resourcesCostOP" value="1000.0" interval="2000.0"/>		
+	<effect type="ss_justice_resourcesCostOP" value="-0.3"/>
+</treaty>
+
+</treatyList>
