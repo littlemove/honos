@@ -8,8 +8,6 @@ The graphic engine (ahem, ahem) is is based on DirectX, in fact, you need DXUT[1
 
 The game engine (ahem, ahem, ahem) is written in standard C++ (no windows or .NET libraries) so I suppose it will be possible to run the game on any OS provided you could install wine[2].
 
-Anyway I will try to provide a makefile to compile it under an unix based system soon.
-
 I made this "thing" for my degree project in college and it's veeeeery crappy.
 
 [1] http://msdn.microsoft.com/en-us/library/bb173316(VS.85).aspx
